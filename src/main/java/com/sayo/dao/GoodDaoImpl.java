@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.sayo.pojo.Good;
+import com.sayo.pojo.Student;
 import com.sayo.utils.DBUtil;
 
 public class GoodDaoImpl implements GoodDao {
@@ -37,6 +38,7 @@ public class GoodDaoImpl implements GoodDao {
 	@Override
 	public boolean insertSingleGood(Good good) throws SQLException {
 		// TODO Auto-generated method stub
+        Student student = new Student();
 		if (selectAllStudentInfo(student.getStudent_id()) != null) return false;
         DBUtil dbUtil = new DBUtil();
         String sql = "insert into student_info (student_id, sname, ssex, sage, sdept, smajor, sclass, teacher_id, title_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -85,16 +87,35 @@ public class GoodDaoImpl implements GoodDao {
 	@Override
 	public boolean deleteSingleGoodByGoodId(String good_id) throws SQLException {
 		// TODO Auto-generated method stub
-		if (selectAllStudentInfo(id) == null) return false;
+		
+		Good good = new Good();
+		Student student = new Student();
+		if (selectAllStudentInfo(student.getStudent_id()) == null) return false;
         DBUtil dbUtil = new DBUtil();
         String sql = "delete from student_info where student_id=?;";
         PreparedStatement preparedStatement = dbUtil.getPreparedStatement(sql);
         try {
-            preparedStatement.setString(1, id);
+            preparedStatement.setString(1, good.getGood_id());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return true;
+	}
+
+	private Object selectAllStudentInfo(String student_id) {
+		
+		DBUtil dbUtil = new DBUtil();
+		String sql = "select * from student_info where student_id = ?";
+		PreparedStatement preparedStatement = dbUtil.getPreparedStatement(sql);
+		try {
+			//System.out.println();
+			preparedStatement.setString(1, student_id);
+			ResultSet rs = preparedStatement.executeQuery();
+		} catch (SQLException throwables) {
+			throwables.printStackTrace();
+		}
+		return rs;
+
 	}
 }
