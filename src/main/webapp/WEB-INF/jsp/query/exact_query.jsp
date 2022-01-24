@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +7,11 @@
 <title>精确查询</title>
 </head>
 <body>
-	<div>
-		<label><input name="good_id" type="checkbox" value="good_id">商品ID</label>
-		<label><input name="type" type="checkbox" value="type">商品种类</label>
-		<label><input name="name" type="checkbox" value="name">商品名</label>	
-	</div>
+	<select>
+		<option value="good_id">商品ID</option>
+		<option value="type">商品类别</option>
+		<option value="name">商品名</option>
+	</select>
+	<a href="../query_menu.html">返回查询菜单</a>
 </body>
 </html>
