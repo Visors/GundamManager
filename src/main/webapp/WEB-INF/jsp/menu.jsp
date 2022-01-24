@@ -9,16 +9,16 @@
 <body>
 	<table>
 		<tr>
-			<td><a href="">查询再版信息</a></td>
+			<td><a href="./query_menu.html">查询再版信息</a></td>
 		</tr>
 		<tr>
-			<td><a href="">添加再版信息</a></td>
+			<td><a href="./add_good.jsp">添加再版信息</a></td>
 		</tr>
 		<tr>
-			<td><a href="">修改再版信息</a></td>
+			<td><a href="./edit_good.jsp">修改再版信息</a></td>
 		</tr>
 		<tr>
-			<td><a href="">删除再版信息</a></td>
+			<td><a href="./delete_good.jsp">删除再版信息</a></td>
 		</tr>
 		<tr>
 			<td><a href="">退出登录</a></td>
