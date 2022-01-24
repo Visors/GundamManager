@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.sayo.pojo.Good;
 import com.sayo.pojo.User;
 import com.sayo.utils.DBUtil;
 
