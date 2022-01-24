@@ -1,6 +1,6 @@
 package com.sayo.pojo;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Good {
 	private String good_id;

@@ -9,7 +9,7 @@ import com.sayo.utils.DBUtil;
 
 public class GoodDaoImpl implements GoodDao {
 	@Override
-	public Good selectSingleGoodByID(String good_id) throws SQLException {
+	public Good selectSingleGoodByGoodID(String good_id) throws SQLException {
 		// TODO Auto-generated method stub
 		DBUtil dbUtil = new DBUtil();
 		String sql = "select * from goods where good_id=?;";
@@ -35,7 +35,31 @@ public class GoodDaoImpl implements GoodDao {
 	}
 
 	@Override
-	public boolean edit(Good good) throws SQLException {
+	public boolean insertSingleGood(Good good) throws SQLException {
+		// TODO Auto-generated method stub
+		if (selectAllStudentInfo(student.getStudent_id()) != null) return false;
+        DBUtil dbUtil = new DBUtil();
+        String sql = "insert into student_info (student_id, sname, ssex, sage, sdept, smajor, sclass, teacher_id, title_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        PreparedStatement preparedStatement = dbUtil.getPreparedStatement(sql);
+        try {
+            preparedStatement.setString(1, student.getStudent_id());
+            preparedStatement.setString(2, student.getName());
+            preparedStatement.setString(3, student.getSex());
+            preparedStatement.setInt(4, student.getAge());
+            preparedStatement.setString(5, student.getDept());
+            preparedStatement.setString(6, student.getMajor());
+            preparedStatement.setString(7, student.getSclass());
+            preparedStatement.setString(8, student.getTeacher_id());
+            preparedStatement.setString(9, student.getTitle_id());
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return true;
+	}
+
+	@Override
+	public boolean editGood(Good good) throws SQLException {
 		// TODO Auto-generated method stub
 		DBUtil dbUtil = new DBUtil();
 		String sql = "update goods set type=?,name=?,price=?,source=?,last_date=?,next_date=? where good_id=?;";
@@ -46,8 +70,8 @@ public class GoodDaoImpl implements GoodDao {
 			preparedStatement.setString(2, good.getName());
 			preparedStatement.setString(3, good.getPrice());
 			preparedStatement.setString(4, good.getSource());
-			preparedStatement.setDate(5, (java.sql.Date) good.getLast_date());
-			preparedStatement.setDate(6, (java.sql.Date) good.getNext_date());
+			preparedStatement.setDate(5, good.getLast_date());
+			preparedStatement.setDate(6, good.getNext_date());
 			preparedStatement.setString(7, good.getGood_id());
 			int rs = preparedStatement.executeUpdate();
 			if (rs == 1)
@@ -56,5 +80,21 @@ public class GoodDaoImpl implements GoodDao {
 			throwables.printStackTrace();
 		}
 		return false;
+	}
+
+	@Override
+	public boolean deleteSingleGoodByGoodId(String good_id) throws SQLException {
+		// TODO Auto-generated method stub
+		if (selectAllStudentInfo(id) == null) return false;
+        DBUtil dbUtil = new DBUtil();
+        String sql = "delete from student_info where student_id=?;";
+        PreparedStatement preparedStatement = dbUtil.getPreparedStatement(sql);
+        try {
+            preparedStatement.setString(1, id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return true;
 	}
 }
