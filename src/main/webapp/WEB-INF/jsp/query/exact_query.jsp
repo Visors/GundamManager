@@ -21,18 +21,22 @@
 		/* alert(username+", "+password); */
 		$.ajax({
 			type : 'post',
-			url : '/GundamManager/CheckLoginServlet',
+			url : '/GundamManager/ExactQueryServlet',
 			data : {
-				'username' : username,
-				'password' : password
+				'good_id' : good_id
 			},
-			dataType : 'text',
+			dataType : 'json',
 			success : function(res) {
 				if (res == "fail") {
 					alert("查无此条目！");
 				} else {
-					alert("类型");
-					window.location.href = "/GundamManager/MenuViewServlet";
+					alert("类型: "+res.type+'\n'+
+							"商品名称: "+res.name+'\n'+
+							"商品价格: "+res.price+'\n'+
+							"出处: "+res.source+'\n'+
+							"最新再版时间: "+res.next_date+'\n'+
+							"上次再版时间: "+res.last_date);
+					window.location.href = "/GundamManager/QueryMenuViewServlet";
 				}
 			}
 		})

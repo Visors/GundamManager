@@ -12,7 +12,7 @@ public class QueryServiceImpl implements QueryService {
 	@Override
 	public Good exactQuerySingleGoodByGoodId(String good_id) throws SQLException {
 		// TODO Auto-generated method stub
-		return goodDao.selectSingleGoodByGoodID(good_id);
+		return goodDao.selectSingleGoodByGoodId(good_id);
 	}
 
 }
