@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <title>登入</title>
 </head>
 <body>
