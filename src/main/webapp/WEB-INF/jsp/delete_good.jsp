@@ -8,7 +8,8 @@
 <title>删除商品</title>
 </head>
 <body>
-
-	<a href="./menu.jsp">返回主菜单</a>
+	<input type="text" id="good_id" placeholder="商品编号">
+	<button id="delete" onclick="delete()">删 除</button><br/>
+	<a href="/GundamManager/MenuViewServlet">返回主菜单</a>
 </body>
 </html>
