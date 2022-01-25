@@ -9,6 +9,6 @@
 </head>
 <body>
 	Something....
-	<a href="../query_menu.html">返回查询菜单</a>
+	<a href="/GundamManager/QueryMenuViewServlet">返回查询菜单</a>
 </body>
 </html>
