@@ -13,7 +13,7 @@
 		<option value="name">商品名</option>
 	</select> -->
 	<input type="text" id="good_id" placeholder="商品编号">
-	<button id="query" onclick="query()">查 询</button>
+	<button id="query" onclick="query()">查 询</button><br/>
 	<a href="/GundamManager/QueryMenuViewServlet">返回查询菜单</a>
 <script>
 	function query() {
